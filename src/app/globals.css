@@ -151,3 +151,12 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--a
 .stat-v { font-weight: 800; font-size: 24px; line-height: 1; }
 .stat-k { margin-top: 4px; font-weight: 500; font-size: 12px; line-height: 1; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.04em; }
 input[type="range"] { width: 100%; accent-color: var(--accent-strong); }
+
+/* reviews marquee */
+.marquee { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.marquee-track { display: flex; width: max-content; gap: 16px; animation: marquee-scroll 60s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-card { width: 340px; flex: 0 0 auto; }
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 560px) { .marquee-card { width: 280px; } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } .marquee { -webkit-mask-image: none; mask-image: none; overflow-x: auto; } }

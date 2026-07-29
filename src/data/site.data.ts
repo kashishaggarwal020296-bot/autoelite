@@ -67,17 +67,78 @@ export function storePhoneFor(store?: string): Store {
 }
 
 // Dealer-supplied marketing claims (used in trust bar + schema aggregateRating).
-// Replace with the live figures before launch.
+// ratingValue/reviewCount read live from the Koramangala Google Business listing
+// on 2026-07-30 (4.6 ★ / 396 reviews). Re-check periodically — reviewCount drifts.
 export const dealer = {
   name: "Autoelite",
   legalName: "Autoelite Mobility Pvt Ltd",
   brand: "Ather",
   tagline: "Authorized Ather dealer for south Bengaluru.",
   delivered: "1,200+",
-  ratingValue: 4.8,
-  reviewCount: 340,
+  ratingValue: 4.6,
+  reviewCount: 396,
+  ratingVerified: "2026-07-30",
+  googleReviewsUrl:
+    "https://www.google.com/maps/place/Ather+Electric+Scooter+Showroom+in+Koramangala,+Bangalore/data=!4m2!3m1!1s0x0:0x6da654817582f5d4",
   url: "https://www.autoelite.in",
 };
+
+export interface Review {
+  author: string;
+  rating: number;      // stars, 1–5
+  date: string;        // approx. month from Google's relative timestamp (captured 2026-07-30)
+  store: "Koramangala"; // listing the review belongs to
+  text: string;        // verbatim from Google — do not paraphrase
+}
+
+// Curated 5★ reviews, copied verbatim from the Koramangala Google listing
+// (captured 2026-07-30, sorted "Highest rating"). These are real customers'
+// public words — do not edit the text; to change the selection, swap whole
+// entries. Aggregate rating/count + the "all reviews" link live on `dealer`.
+export const reviews: Review[] = [
+  {
+    author: "John Mathew",
+    rating: 5,
+    date: "Jun 2026",
+    store: "Koramangala",
+    text: "I recently took delivery of my new Ather 450X, and I had a wonderful experience throughout the process. The delivery was smooth, and I was provided with detailed information about the vehicle. A special thanks to Kumaran, who explained every feature and aspect of the Ather 450X very clearly and patiently. His knowledge and professionalism made the experience even better. Thank you, Kumaran, and the entire Ather team for making my new vehicle delivery a memorable one!",
+  },
+  {
+    author: "S. Bharath Bhushan",
+    rating: 5,
+    date: "Jun 2026",
+    store: "Koramangala",
+    text: "I recently purchased my Ather X from the Koramangala showroom, and I had a wonderful experience thanks to Mr. Pawan. From the very beginning, he was patient, knowledgeable, and always ready to answer all my questions. He guided me through the entire process smoothly and made the buying experience completely hassle-free. His professionalism, friendly attitude, and prompt support really stood out.",
+  },
+  {
+    author: "anu pallavi",
+    rating: 5,
+    date: "May 2026",
+    store: "Koramangala",
+    text: "Had a great experience at the Ather showroom in Koramangala. The showroom atmosphere was very welcoming and the staff were professional and helpful throughout the visit. Special thanks to Shashank, the Product Specialist, for explaining all the features in detail and patiently answering every question. Highly recommended for anyone planning to buy an electric scooter!",
+  },
+  {
+    author: "Manu sb",
+    rating: 5,
+    date: "May 2026",
+    store: "Koramangala",
+    text: "It was a very good experience at Ather Koramangala. Mr. Rakshith is very polite and gave me complete insights about the product. He helped me throughout my purchasing process. It was a smooth auto delivery — all credit goes to the sales staff, especially Rakshith. I will recommend this showroom for a smooth and better experience.",
+  },
+  {
+    author: "Ashok Asirvatham",
+    rating: 5,
+    date: "May 2026",
+    store: "Koramangala",
+    text: "Had a good experience with Ather Koramangala. Sashank the sales guy and Kumaran delivery lead were so kind and helped all through the process. I got my bike delivery before the eta. Happy buying my 1st EV.",
+  },
+  {
+    author: "Praveen Kumar",
+    rating: 5,
+    date: "Jun 2026",
+    store: "Koramangala",
+    text: "Kumaran was very good at explaining the bike's performance in detail. He patiently answered all my questions and provided clear comparisons between different models. His communication was polite and professional. He also explained the service and maintenance aspects, which gave me confidence in the purchase decision. Overall, his product knowledge and customer-friendly approach made the experience very satisfactory.",
+  },
+];
 
 export interface Faq {
   q: string;

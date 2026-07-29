@@ -2,6 +2,7 @@ import Link from "next/link";
 import { models } from "@/data/scooters.data";
 import { stores, faqs, dealer, whatsappLink } from "@/data/site.data";
 import ModelCard from "@/components/ModelCard";
+import Reviews from "@/components/Reviews";
 import CallbackForm from "@/components/CallbackForm";
 import FaqAccordion from "@/components/FaqAccordion";
 import { JsonLd, autoDealerSchema, faqPageSchema } from "@/lib/jsonld";
@@ -116,18 +117,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* reviews placeholder */}
-      <section className="section" style={{ paddingTop: 8 }}>
-        <div style={{ border: "1px dashed var(--line-2)", borderRadius: 16, background: "var(--surface-2)", padding: 28, display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
-          <div>
-            <div style={{ fontWeight: 800, fontSize: 20 }}>{dealer.ratingValue} ★ · {dealer.reviewCount} Google reviews</div>
-            <div style={{ marginTop: 6, fontSize: 14, lineHeight: 1.45, color: "var(--muted-2)", maxWidth: 480 }}>
-              Verified reviews widget loads here — space reserved so it never flashes an empty void.
-            </div>
-          </div>
-          <span className="ph-label">[ Google reviews embed ]</span>
-        </div>
-      </section>
+      {/* reviews */}
+      <Reviews />
 
       {/* callback */}
       <section style={{ background: "var(--ink)" }}>
