@@ -76,7 +76,7 @@ export const dealer = {
   delivered: "1,200+",
   ratingValue: 4.8,
   reviewCount: 340,
-  url: "https://autoelite.example",
+  url: "https://www.autoelite.in",
 };
 
 export interface Faq {
