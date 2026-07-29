@@ -219,9 +219,12 @@ export const onRoadConfig: OnRoadConfig = {
 
 // ---------- FINANCE CONFIG ----------
 // Indicative default. Final rate depends on the finance partner and the buyer's profile.
+// annualRate is a realistic average — NOT Ather's advertised "as low as 3.99%" floor,
+// which most buyers won't qualify for. maxTenureMonths matches Ather Flexipay's 60-month
+// ceiling (atherenergy.com/flexipay, checked 2026-07-30; tenures 6–60 months).
 export const financeConfig: FinanceConfig = {
   annualRate: 0.095,      // 9.5% p.a. reducing balance
-  maxTenureMonths: 48,
+  maxTenureMonths: 60,
 };
 
 // ---------- DATA ----------
