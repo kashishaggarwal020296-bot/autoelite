@@ -44,6 +44,7 @@ export interface LeadInput {
   slot?: string;       // preferred day / date
   pincode?: string;
   pickup?: boolean;
+  reminderOptIn?: boolean; // service: customer opted in to a first-service reminder
   message?: string;    // free text; auto-composed from fields if omitted
   botcheck?: string;   // honeypot — must be empty for a human
 }
@@ -72,6 +73,7 @@ function composeMessage(i: LeadInput): string {
   if (i.slot) parts.push(i.slot);
   if (i.pincode) parts.push(`PIN ${i.pincode}`);
   if (i.pickup != null) parts.push(i.pickup ? "Pickup & drop" : "Drop at store");
+  if (i.reminderOptIn) parts.push("First-service reminder: opted in");
   return parts.join(" · ");
 }
 
@@ -98,6 +100,7 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
     slot: input.slot ?? "",
     pincode: input.pincode ?? "",
     pickup: input.pickup ?? "",
+    reminder_opt_in: input.reminderOptIn ?? "",
     message: composeMessage(input),
     page_url: typeof window !== "undefined" ? window.location.href : "",
     referrer: typeof window !== "undefined" ? document.referrer || "direct" : "",
