@@ -11,8 +11,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div>
-          <div className="brand" style={{ color: "#fff" }}>
-            auto<span>elite</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <img src="/brand/autoelite-icon.png" alt="" style={{ height: 34, width: "auto", display: "block" }} />
+            <span className="brand" style={{ color: "#fff" }}>auto<span>elite</span></span>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 14, lineHeight: 1.55, color: "#94938b", maxWidth: 240 }}>
             {dealer.tagline} Sales, finance and service — Koramangala &amp; HSR Layout.

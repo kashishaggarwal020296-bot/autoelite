@@ -18,8 +18,8 @@ export default function Header() {
     <header className="header">
       <div className="header-inner">
         <div style={{ display: "flex", alignItems: "center", gap: 30 }}>
-          <Link href="/" className="brand">
-            auto<span>elite</span>
+          <Link href="/" className="brand" aria-label="Autoelite — home">
+            <img src="/brand/autoelite-logo.png" alt="Autoelite" style={{ height: 40, width: "auto", display: "block" }} />
           </Link>
           <nav className="nav">
             {NAV.map((n) => {
