@@ -18,6 +18,7 @@ export interface Store {
   geo: { lat: number; lng: number };
   mapsUrl: string;
   mapEmbed: string;
+  serviceAvailable: boolean; // false → hidden from the service-booking store picker
 }
 
 export const WHATSAPP_NUMBER = "918047182200";
@@ -39,6 +40,7 @@ export const stores: Store[] = [
     geo: { lat: 12.9352, lng: 77.6245 },
     mapsUrl: "https://maps.google.com/?q=Autoelite+Koramangala+Bengaluru",
     mapEmbed: "https://www.google.com/maps?q=Koramangala,Bengaluru&output=embed",
+    serviceAvailable: true,
   },
   {
     id: "hsr-layout",
@@ -54,6 +56,7 @@ export const stores: Store[] = [
     geo: { lat: 12.9116, lng: 77.6412 },
     mapsUrl: "https://maps.google.com/?q=Autoelite+HSR+Layout+Bengaluru",
     mapEmbed: "https://www.google.com/maps?q=HSR+Layout,Bengaluru&output=embed",
+    serviceAvailable: false, // HSR service station not yet operational (2026-07-30)
   },
 ];
 

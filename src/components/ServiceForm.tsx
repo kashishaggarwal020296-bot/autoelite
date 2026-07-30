@@ -7,10 +7,12 @@ import { submitLead } from "@/lib/leads";
 import { Honeypot, SubmitFallback } from "@/components/FormBits";
 
 const vehicleNames = models.map((m) => m.name);
+// Only stores with a running service station can take bookings.
+const serviceStores = stores.filter((s) => s.serviceAvailable);
 
 export default function ServiceForm() {
   const [vehicle, setVehicle] = useState(vehicleNames[0]);
-  const [store, setStore] = useState(stores[0].name);
+  const [store, setStore] = useState(serviceStores[0].name);
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState(true);
   const [name, setName] = useState("");
@@ -59,7 +61,7 @@ export default function ServiceForm() {
       <div>
         <div className="label">Store</div>
         <div style={{ display: "flex", gap: 8 }}>
-          {stores.map((s) => (
+          {serviceStores.map((s) => (
             <button key={s.id} className="pill" aria-pressed={store === s.name} style={{ flex: 1, justifyContent: "center", borderRadius: 10 }} onClick={() => setStore(s.name)}>{s.name}</button>
           ))}
         </div>
