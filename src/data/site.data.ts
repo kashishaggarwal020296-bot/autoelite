@@ -20,6 +20,7 @@ export interface Store {
   mapEmbed: string;
   serviceAvailable: boolean; // false → hidden from the service-booking store picker
   photo?: string;            // public/ path to a real storefront photo; if absent, a brand card is shown
+  serviceAddress?: string;   // service centre address when it differs from the showroom/experience centre
 }
 
 export const WHATSAPP_NUMBER = "918047182200";
@@ -43,6 +44,7 @@ export const stores: Store[] = [
     mapEmbed: "https://www.google.com/maps?q=Koramangala,Bengaluru&output=embed",
     serviceAvailable: true,
     photo: "/stores/koramangala.jpg",
+    serviceAddress: "620, 17th A Main Rd, 6th Block, Koramangala, Bengaluru, Karnataka 560095",
   },
   {
     id: "hsr-layout",
@@ -59,6 +61,7 @@ export const stores: Store[] = [
     mapsUrl: "https://maps.google.com/?q=Autoelite+HSR+Layout+Bengaluru",
     mapEmbed: "https://www.google.com/maps?q=HSR+Layout,Bengaluru&output=embed",
     serviceAvailable: false, // HSR service station not yet operational (2026-07-30)
+    photo: "/stores/hsr.jpg",
   },
 ];
 

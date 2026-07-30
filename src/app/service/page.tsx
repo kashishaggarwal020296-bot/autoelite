@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import ServiceForm from "@/components/ServiceForm";
+import { stores } from "@/data/site.data";
 import { JsonLd, breadcrumbSchema } from "@/lib/jsonld";
+
+const serviceCentre = stores.find((s) => s.serviceAvailable && s.serviceAddress);
 
 export const metadata: Metadata = {
   title: "Ather Service in Bengaluru — Book Online, Pickup & Drop | Autoelite",
@@ -25,6 +28,13 @@ export default function ServicePage() {
           <div style={{ fontWeight: 800, fontSize: 15 }}>First-service reminder</div>
           <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.45, color: "var(--muted-2)" }}>Opt in and we&apos;ll nudge you when it&apos;s due.</div>
         </div>
+        {serviceCentre?.serviceAddress && (
+          <div className="card" style={{ padding: 18 }}>
+            <div style={{ fontWeight: 800, fontSize: 15 }}>Where we service</div>
+            <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.45, color: "var(--muted-2)" }}>{serviceCentre.serviceAddress}</div>
+            <div style={{ marginTop: 6, fontSize: 12, lineHeight: 1.4, color: "var(--faint)" }}>Our {serviceCentre.name} service centre — a separate location from the showroom.</div>
+          </div>
+        )}
       </div>
     </main>
   );
