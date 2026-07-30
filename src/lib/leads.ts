@@ -79,7 +79,9 @@ function composeMessage(i: LeadInput): string {
 
 export async function submitLead(input: LeadInput): Promise<LeadResult> {
   const label = FORM_LABEL[input.formType];
-  const subject = `New ${label}${input.store ? ` — ${input.store}` : ""}`;
+  // Flag reminder opt-ins in the subject so staff can filter/label them in the
+  // inbox and work them as a manual first-service-reminder list.
+  const subject = `New ${label}${input.store ? ` — ${input.store}` : ""}${input.reminderOptIn ? " · reminder opt-in" : ""}`;
 
   const accessKey = accessKeyFor(input.formType);
 
