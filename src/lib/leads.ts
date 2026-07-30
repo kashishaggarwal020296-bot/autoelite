@@ -14,7 +14,16 @@ import { track } from "./analytics";
  */
 
 const ENDPOINT = "https://api.web3forms.com/submit";
+// Web3Forms delivers to the inbox tied to each access key. Service leads go to
+// a separate key (service manager's inbox); everything else uses the sales key.
+// If the service key is unset, service falls back to the sales key so nothing
+// breaks before it's configured.
 const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+const SERVICE_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY_SERVICE || ACCESS_KEY;
+
+function accessKeyFor(formType: FormType): string | undefined {
+  return formType === "service" ? SERVICE_KEY : ACCESS_KEY;
+}
 
 export type FormType = "test_ride" | "on_road_price" | "service" | "callback";
 
@@ -70,9 +79,11 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
   const label = FORM_LABEL[input.formType];
   const subject = `New ${label}${input.store ? ` — ${input.store}` : ""}`;
 
+  const accessKey = accessKeyFor(input.formType);
+
   const payload = {
     // ---- Web3Forms wrapper (ignored by Make) ----
-    access_key: ACCESS_KEY,
+    access_key: accessKey,
     from_name: "Autoelite Website",
     subject,
     botcheck: input.botcheck ?? "",
@@ -93,7 +104,7 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
     ...utm(),
   };
 
-  if (!ACCESS_KEY) {
+  if (!accessKey) {
     return { ok: false, error: "Form is not configured (missing Web3Forms key)." };
   }
 
