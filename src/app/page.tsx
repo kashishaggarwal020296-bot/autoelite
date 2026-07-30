@@ -105,7 +105,7 @@ export default function HomePage() {
           {stores.map((s) => (
             <div key={s.id} className="card">
               <div style={{ aspectRatio: "16 / 9", overflow: "hidden" }}>
-                <Storefront name={s.name} />
+                <Storefront name={s.name} photo={s.photo} />
               </div>
               <div style={{ padding: 20 }}>
                 <div style={{ fontWeight: 800, fontSize: 19 }}>Autoelite {s.name}</div>

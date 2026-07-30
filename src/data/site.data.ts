@@ -19,6 +19,7 @@ export interface Store {
   mapsUrl: string;
   mapEmbed: string;
   serviceAvailable: boolean; // false → hidden from the service-booking store picker
+  photo?: string;            // public/ path to a real storefront photo; if absent, a brand card is shown
 }
 
 export const WHATSAPP_NUMBER = "918047182200";
@@ -41,6 +42,7 @@ export const stores: Store[] = [
     mapsUrl: "https://maps.google.com/?q=Autoelite+Koramangala+Bengaluru",
     mapEmbed: "https://www.google.com/maps?q=Koramangala,Bengaluru&output=embed",
     serviceAvailable: true,
+    photo: "/stores/koramangala.jpg",
   },
   {
     id: "hsr-layout",
