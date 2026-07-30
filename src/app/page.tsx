@@ -27,8 +27,12 @@ export default function HomePage() {
             <Link href="/on-road-price" className="btn btn-outline" style={{ height: 52 }}>Get On-Road Price</Link>
           </div>
         </div>
-        <div className="ph-strong" style={{ aspectRatio: "4 / 3", borderRadius: 16 }}>
-          <span className="ph-label">[ hero: 3/4 front scooter ]<br />daylight · Ather asset kit</span>
+        <div style={{ aspectRatio: "4 / 3", borderRadius: 16, overflow: "hidden", position: "relative" }}>
+          <img
+            src="/lifestyle/rizta-riding.webp"
+            alt="Rider on an Ather Rizta on a Bengaluru road"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          />
         </div>
       </section>
 

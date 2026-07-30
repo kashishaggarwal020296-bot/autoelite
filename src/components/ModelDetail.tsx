@@ -105,8 +105,16 @@ export default function ModelDetail({ model }: { model: Model }) {
             <Link href={`/on-road-price?variant=${variant.id}`} className="btn btn-outline">On-Road Price</Link>
           </div>
         </div>
-        <div className="ph-strong" style={{ aspectRatio: "4 / 3", borderRadius: 16 }}>
-          <span className="ph-label">[ {variant.name}: 3/4 render ]<br />Ather asset kit</span>
+        <div className="ph-strong" style={{ aspectRatio: "4 / 3", borderRadius: 16, position: "relative", overflow: "hidden", background: "var(--surface)" }}>
+          {variant.image ?? model.image ? (
+            <img
+              src={variant.image ?? model.image}
+              alt={`${variant.name} scooter`}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain" }}
+            />
+          ) : (
+            <span className="ph-label">[ {variant.name}: 3/4 render ]<br />Ather asset kit</span>
+          )}
         </div>
       </section>
 

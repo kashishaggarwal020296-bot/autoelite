@@ -24,8 +24,17 @@ export default function ModelCard({ model, showTag = false }: { model: Model; sh
 
   return (
     <div className="card" style={{ display: "flex", flexDirection: "column" }}>
-      <div className="ph" style={{ position: "relative", aspectRatio: "4 / 3" }}>
-        <span className="ph-label">[ {model.name} ]</span>
+      <div className="ph" style={{ position: "relative", aspectRatio: "4 / 3", background: model.image ? "var(--surface)" : undefined }}>
+        {model.image ? (
+          <img
+            src={model.image}
+            alt={`${model.name} scooter`}
+            loading="lazy"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain" }}
+          />
+        ) : (
+          <span className="ph-label">[ {model.name} ]</span>
+        )}
         {showStatus && (
           <span
             className={`badge ${model.status === "discontinued" ? "badge-danger" : "badge-dark"}`}

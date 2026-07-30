@@ -72,6 +72,7 @@ export interface Variant {
   status: Availability;
   lastVerified?: string; // ISO date this variant's figures were confirmed
   specSheetUrl?: string;
+  image?: string;        // public/ path to a 3/4-front studio shot; overrides model.image
 }
 
 export interface Model {
@@ -81,6 +82,7 @@ export interface Model {
   rangeNote?: string;    // range-option surcharge note, surfaced next to from-price
   order: number;         // display order in grids
   status: Availability;
+  image?: string;        // public/ path — card image + model-page hero fallback
   variants: Variant[];
 }
 
@@ -234,6 +236,7 @@ export const models: Model[] = [
   {
     id: "rizta",
     name: "Ather Rizta",
+    image: "/scooters/rizta-z-red.webp",
     tagline: "The family EV — up to ~161 km, 34–56 L storage, built for the daily Bengaluru run.",
     rangeNote: "161 km option +₹23,000 (S) / +₹20,000 (Z)",
     order: 1,
@@ -242,6 +245,7 @@ export const models: Model[] = [
       {
         id: "rizta-s",
         name: "Rizta S",
+        image: "/scooters/rizta-s.avif",
         tag: "The family EV",
         positioning: "The easy daily EV — comfortable, roomy and built for the Bengaluru run.",
         exShowroomBlr: 121499,
@@ -272,6 +276,7 @@ export const models: Model[] = [
       {
         id: "rizta-z",
         name: "Rizta Z",
+        image: "/scooters/rizta-z-red.webp",
         tag: "The family EV",
         positioning: "More range, more storage and a bigger dash — the family Rizta, maxed out.",
         exShowroomBlr: 136999,
@@ -309,6 +314,7 @@ export const models: Model[] = [
   {
     id: "450",
     name: "Ather 450",
+    image: "/scooters/450x.webp",
     tagline: "The sporty, connected Ather — quick off the line, Google Maps on the dash.",
     rangeNote: "161 km option +₹14,000 (450S) / +₹10,501 (450X)",
     order: 2,
@@ -317,6 +323,7 @@ export const models: Model[] = [
       {
         id: "450s",
         name: "450S",
+        image: "/scooters/450s.avif",
         tag: "The sporty entry",
         positioning: "90 km/h, quick off the line and fully connected — the entry into 450.",
         exShowroomBlr: 135999,
@@ -348,6 +355,7 @@ export const models: Model[] = [
       {
         id: "450x",
         name: "450X",
+        image: "/scooters/450x.webp",
         tag: "The enthusiast's Ather",
         positioning: "Warp mode and Google Maps on the dash — the connected enthusiast's 450.",
         exShowroomBlr: 152498,
@@ -383,6 +391,7 @@ export const models: Model[] = [
   {
     id: "450-apex",
     name: "Ather 450 Apex",
+    image: "/scooters/450-apex.webp",
     tagline: "The fastest Ather made — 0–40 in 2.9 s, 100 km/h.",
     order: 3,
     status: "available",
@@ -390,6 +399,7 @@ export const models: Model[] = [
       {
         id: "450-apex",
         name: "450 Apex",
+        image: "/scooters/450-apex.webp",
         tag: "The fastest Ather made",
         positioning: "0–40 in 2.9 s and 100 km/h — the sharpest, fastest ride Ather builds.",
         exShowroomBlr: 194999,
