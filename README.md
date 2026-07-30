@@ -51,13 +51,28 @@ Colour hex values are visual approximations — replace with real chips.
 Every form (test ride, on-road price gate, service, callback, homepage lead)
 POSTs JSON directly to Web3Forms (`https://api.web3forms.com/submit`) — no
 backend. Get a free access key at https://web3forms.com and set it (keys are
-safe to expose client-side):
+safe to expose client-side — they ship in the browser bundle by design):
 
 ```
+# Sales leads (test ride, on-road price, callback, homepage lead)
 NEXT_PUBLIC_WEB3FORMS_KEY=your-web3forms-uuid-key
+
+# Optional: service bookings → a SEPARATE inbox (service manager, not sales).
+# Create a second Web3Forms key pointed at that inbox. If unset, service leads
+# fall back to NEXT_PUBLIC_WEB3FORMS_KEY.
+NEXT_PUBLIC_WEB3FORMS_KEY_SERVICE=your-service-web3forms-uuid-key
+
+# Optional analytics — snippets only load when the ID is set.
 NEXT_PUBLIC_GA4_ID=G-XXXXXXX
 NEXT_PUBLIC_META_PIXEL_ID=xxxxxxxxxxxx
 ```
+
+**Destination inbox** is configured per key inside the Web3Forms dashboard, not
+in code. The access key is chosen by form type in
+[`src/lib/leads.ts`](src/lib/leads.ts) (`accessKeyFor`): `service` →
+`NEXT_PUBLIC_WEB3FORMS_KEY_SERVICE`, everything else →
+`NEXT_PUBLIC_WEB3FORMS_KEY`. After changing an env var on the host (e.g.
+Vercel), **redeploy** — `NEXT_PUBLIC_*` vars are inlined at build time.
 
 Each submission sends `from_name`, a dynamic `subject`
 (`New {test ride|on-road price|service|callback} — {store}`), a hidden
