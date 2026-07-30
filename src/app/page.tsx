@@ -3,6 +3,7 @@ import { models } from "@/data/scooters.data";
 import { stores, faqs, dealer, whatsappLink } from "@/data/site.data";
 import ModelCard from "@/components/ModelCard";
 import Reviews from "@/components/Reviews";
+import Storefront from "@/components/Storefront";
 import CallbackForm from "@/components/CallbackForm";
 import FaqAccordion from "@/components/FaqAccordion";
 import { JsonLd, autoDealerSchema, faqPageSchema } from "@/lib/jsonld";
@@ -103,8 +104,8 @@ export default function HomePage() {
         <div className="grid grid-2">
           {stores.map((s) => (
             <div key={s.id} className="card">
-              <div className="ph" style={{ aspectRatio: "16 / 9" }}>
-                <span className="ph-label">[ {s.name} storefront ]</span>
+              <div style={{ aspectRatio: "16 / 9", overflow: "hidden" }}>
+                <Storefront name={s.name} />
               </div>
               <div style={{ padding: 20 }}>
                 <div style={{ fontWeight: 800, fontSize: 19 }}>Autoelite {s.name}</div>

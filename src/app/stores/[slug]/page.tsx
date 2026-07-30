@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { stores, storeBySlug, whatsappLink } from "@/data/site.data";
 import { JsonLd, autoDealerSchema, breadcrumbSchema } from "@/lib/jsonld";
+import Storefront from "@/components/Storefront";
 
 export function generateStaticParams() {
   return stores.map((s) => ({ slug: s.slug }));
@@ -41,8 +42,8 @@ export default function StorePage({ params }: { params: { slug: string } }) {
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: 24, alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          <div className="ph-strong" style={{ aspectRatio: "16 / 10", borderRadius: 16 }}>
-            <span className="ph-label">[ {store.name} storefront ]</span>
+          <div style={{ aspectRatio: "16 / 10", borderRadius: 16, overflow: "hidden" }}>
+            <Storefront name={store.name} />
           </div>
           <iframe
             title={`Map of Autoelite ${store.name}`}
