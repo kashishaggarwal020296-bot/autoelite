@@ -4,7 +4,8 @@ import { useState } from "react";
 import { models, onRoadConfig, financeConfig, getOnRoadPrice, computeEmi, inr } from "@/data/scooters.data";
 import { IndicativeNote } from "@/components/Indicative";
 
-const TENURES = [12, 24, 36, 48];
+// 12-month steps up to the configured ceiling — stays in sync with financeConfig.
+const TENURES = Array.from({ length: Math.floor(financeConfig.maxTenureMonths / 12) }, (_, i) => (i + 1) * 12);
 
 export default function EmiCalculator() {
   const [modelId, setModelId] = useState(models[0].id);
