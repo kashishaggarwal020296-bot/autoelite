@@ -15,11 +15,13 @@ import {
 import { IndicativeNote, IndicativeLine } from "@/components/Indicative";
 import CallbackForm from "@/components/CallbackForm";
 
-const FEATURES = [
-  ["Comfort", "Flat floorboard, deep seat and generous boot for the daily run."],
-  ["Ride", "Instant torque and quick, sure handling through Bengaluru traffic."],
-  ["Safety", "Fall-safe alerts, all-LED lighting and a bright, readable dash."],
-  ["Connectivity", "Navigation, ride stats and OTA updates, straight on the dash."],
+// [title, blurb, image] — images are generic Ather detail shots, shared across
+// model pages (illustrative, not per-model-exact).
+const FEATURES: [string, string, string][] = [
+  ["Comfort", "Flat floorboard, deep seat and generous boot for the daily run.", "/features/comfort.avif"],
+  ["Ride", "Instant torque and quick, sure handling through Bengaluru traffic.", "/features/ride.avif"],
+  ["Safety", "Fall-safe alerts, all-LED lighting and a bright, readable dash.", "/features/safety.avif"],
+  ["Connectivity", "Navigation, ride stats and OTA updates, straight on the dash.", "/features/connectivity.jpg"],
 ];
 
 const statusLabel: Record<string, string> = { coming_soon: "Coming soon", discontinued: "Sold out" };
@@ -121,9 +123,16 @@ export default function ModelDetail({ model }: { model: Model }) {
       {/* features */}
       <section className="section" style={{ paddingTop: 8, paddingBottom: 8 }}>
         <div className="grid grid-models">
-          {FEATURES.map(([t, d]) => (
+          {FEATURES.map(([t, d, img]) => (
             <div key={t} className="card">
-              <div className="ph" style={{ aspectRatio: "3 / 2" }}><span className="ph-label">[ {t.toLowerCase()} detail ]</span></div>
+              <div className="ph" style={{ aspectRatio: "3 / 2", position: "relative", overflow: "hidden" }}>
+                <img
+                  src={img}
+                  alt={`Ather ${t.toLowerCase()} detail`}
+                  loading="lazy"
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </div>
               <div style={{ padding: 16 }}>
                 <div style={{ fontWeight: 800, fontSize: 16 }}>{t}</div>
                 <div style={{ marginTop: 5, fontSize: 13, lineHeight: 1.45, color: "var(--muted-2)" }}>{d}</div>
