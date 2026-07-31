@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const CARDS = [
   ["Warranty you can rely on", "Every Ather is covered by the manufacturer warranty on the vehicle and battery. Exact terms are on each model's spec table."],
-  ["Service that comes to you", "Book online, and we pick up and drop across Koramangala and HSR — genuine Ather parts only, with a first-service reminder."],
+  ["Service that comes to you", "Book online, and we pick up and drop across Koramangala and HSR — genuine Ather parts only."],
   ["Low running costs", "Charging costs a fraction of petrol, and there's far less to service. The savings calculator on any model page shows your number."],
   ["Always improving", "Over-the-air updates add features and refinements to your scooter over time — no showroom visit needed."],
 ];

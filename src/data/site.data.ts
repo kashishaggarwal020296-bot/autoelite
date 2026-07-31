@@ -158,6 +158,6 @@ export const faqs: Faq[] = [
   { q: "What's the real on-road price?", a: "Ex-showroom is only part of it. Use our On-Road Price tool for an itemised Bengaluru total — RTO, insurance and subsidy included." },
   { q: "Do you handle finance?", a: "Yes, in-store. Zero down payment options, low EMIs, and we help with the paperwork." },
   { q: "Can I charge in an apartment?", a: "Most societies allow it — an Ather home charger fits a standard plug point. We'll guide you on society permissions and installation." },
-  { q: "Where do I service it?", a: "At either Autoelite store, with pickup and drop across Koramangala and HSR, genuine Ather parts, and a first-service reminder." },
+  { q: "Where do I service it?", a: "At either Autoelite store, with pickup and drop across Koramangala and HSR, genuine Ather parts only." },
   { q: "Do you buy my old scooter?", a: "We run exchange offers on most models — bring your current two-wheeler and we'll value it against your new Ather at either store." },
 ];
