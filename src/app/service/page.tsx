@@ -8,7 +8,7 @@ const serviceCentre = stores.find((s) => s.serviceAvailable && s.serviceAddress)
 export const metadata: Metadata = {
   title: "Ather Service in Bengaluru — Book Online, Pickup & Drop | Autoelite",
   description:
-    "Book Ather service online at Autoelite Bengaluru. Free pickup and drop across Koramangala and HSR Layout, genuine Ather parts only, first-service reminders.",
+    "Book Ather service online at Autoelite Bengaluru. Free pickup and drop across Koramangala and HSR Layout, genuine Ather parts only.",
   alternates: { canonical: "/service" },
 };
 
@@ -23,10 +23,6 @@ export default function ServicePage() {
         <div className="card" style={{ padding: 18 }}>
           <div style={{ fontWeight: 800, fontSize: 15 }}>Genuine parts only</div>
           <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.45, color: "var(--muted-2)" }}>Every part fitted is genuine Ather. No exceptions.</div>
-        </div>
-        <div className="card" style={{ padding: 18 }}>
-          <div style={{ fontWeight: 800, fontSize: 15 }}>First-service reminder</div>
-          <div style={{ marginTop: 6, fontSize: 13, lineHeight: 1.45, color: "var(--muted-2)" }}>Opt in and our team will remind you when it&apos;s due.</div>
         </div>
         {serviceCentre?.serviceAddress && (
           <div className="card" style={{ padding: 18 }}>

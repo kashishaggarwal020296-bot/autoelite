@@ -15,7 +15,6 @@ export default function ServiceForm() {
   const [store, setStore] = useState(serviceStores[0].name);
   const [date, setDate] = useState("");
   const [pickup, setPickup] = useState(true);
-  const [remind, setRemind] = useState(true);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [botcheck, setBotcheck] = useState("");
@@ -32,7 +31,7 @@ export default function ServiceForm() {
     }
     setStatus("sending");
     setError("");
-    const res = await submitLead({ formType: "service", name, phone, model: vehicle, store, slot: date, pickup, reminderOptIn: remind, botcheck });
+    const res = await submitLead({ formType: "service", name, phone, model: vehicle, store, slot: date, pickup, botcheck });
     if (res.ok) setStatus("done");
     else { setSendFailed(true); setStatus("error"); }
   }
@@ -79,10 +78,6 @@ export default function ServiceForm() {
           </label>
         </div>
       </div>
-      <label onClick={() => setRemind(!remind)} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10, padding: "0 14px", minHeight: 46, border: "1px solid var(--line-2)", borderRadius: 10, fontWeight: 600, fontSize: 14 }}>
-        <span style={{ width: 22, height: 22, flexShrink: 0, borderRadius: 6, border: `2px solid ${remind ? "var(--accent)" : "#c7c6be"}`, background: remind ? "var(--accent)" : "#fff", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 13 }}>{remind ? "✓" : ""}</span>
-        Remind me when my first service is due
-      </label>
       <input className="field" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
       <input className="field" placeholder="Phone (+91)" value={phone} onChange={(e) => setPhone(e.target.value)} />
       <Honeypot value={botcheck} onChange={setBotcheck} />
