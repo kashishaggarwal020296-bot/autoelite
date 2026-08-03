@@ -214,7 +214,7 @@ export default function ModelDetail({ model }: { model: Model }) {
               <div style={{ marginTop: 6, fontWeight: 800, fontSize: 24 }}>{inr(emiFrom)}<span style={{ fontSize: 14, fontWeight: 500, color: "var(--muted-2)" }}>/mo</span></div>
             </div>
             <div style={{ padding: 20, borderRadius: 12, background: "var(--accent)", color: "#fff", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div style={{ fontWeight: 500, fontSize: 12, color: "#dff0e6" }}>On-road (Bengaluru, indicative)</div>
+              <div style={{ fontWeight: 500, fontSize: 12, color: "#dff0e6" }}>On-road (Bengaluru{onRoadConfig.isVerified ? "" : ", indicative"})</div>
               <div style={{ marginTop: 6, fontWeight: 800, fontSize: 24 }}>{inr(onRoad)}</div>
               <Link href={`/on-road-price?variant=${variant.id}`} className="btn" style={{ marginTop: 12, height: 38, background: "#fff", color: "var(--accent-strong)", fontSize: 13 }}>View on-road breakup</Link>
             </div>

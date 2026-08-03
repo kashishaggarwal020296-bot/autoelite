@@ -146,7 +146,7 @@ export function getOnRoadBreakdown(variant: Variant, config: OnRoadConfig, colou
   if (variant.onRoadBlrOverride != null) {
     return [
       { label: "Ex-showroom (effective)", amount: base, note: `Post-benefit price · ${variant.name}`, kind: "base" },
-      { label: "RTO, insurance & charges", amount: variant.onRoadBlrOverride - base, note: "Karnataka EV — indicative estimate", kind: "add" },
+      { label: "RTO, insurance & charges", amount: variant.onRoadBlrOverride - base, note: "RTO ₹1,062 + insurance; Karnataka EV road-tax exempt", kind: "add" },
     ];
   }
 
@@ -209,14 +209,14 @@ export function modelFromOnRoad(model: Model, config: OnRoadConfig): { variant: 
 }
 
 // ---------- ON-ROAD CONFIG ----------
-// Dormant fallback while every variant carries an onRoadBlrOverride. PLACEHOLDER
-// values — isVerified stays false so on-road figures render as indicative.
+// Dormant fallback while every variant carries an onRoadBlrOverride. Figures
+// verified against the Autoelite Ather price list (August 2026).
 export const onRoadConfig: OnRoadConfig = {
-  registration: 0,        // Karnataka EV road tax exempt assumption — VERIFY
-  insuranceRate: 0.055,   // PLACEHOLDER ~5.5% of ex-showroom — VERIFY with your package
-  subsidy: 5000,          // PLACEHOLDER — not applied while overrides are set (benefit is in ex-showroom)
-  isVerified: false,      // flip to true only after confirming real figures
-  lastVerified: "2026-07-28",
+  registration: 1062,     // RTO registration & smart-card fees (flat), per price list. Road tax ₹0 (KA EV exempt)
+  insuranceRate: 0.053,   // ~5.3% of effective ex-showroom (basic 1yr OD + 5yr TP + PA); varies slightly per variant
+  subsidy: 0,             // PM E-Drive benefit already baked into effective ex-showroom — no stacking
+  isVerified: true,       // verified against Autoelite Aug 2026 price list
+  lastVerified: "2026-07-30",
 };
 
 // ---------- FINANCE CONFIG ----------
@@ -252,7 +252,7 @@ export const models: Model[] = [
         onRoadBlrOverride: 129504, // configurator on-road (indicative) — benefit already in ex-showroom
         emiFrom: 2235,
         status: "available",
-        lastVerified: "2026-07-28",
+        lastVerified: "2026-07-30",
         specSheetUrl: "",
         keySpecs: {
           idcRangeKm: "123 / 161", // 161 confirmed (the earlier 159 figure was wrong)
@@ -283,7 +283,7 @@ export const models: Model[] = [
         onRoadBlrOverride: 145295,
         emiFrom: 2235,
         status: "available",
-        lastVerified: "2026-07-28",
+        lastVerified: "2026-07-30",
         specSheetUrl: "",
         keySpecs: {
           idcRangeKm: "123 / 161", // 161 confirmed (the earlier 159 figure was wrong)
@@ -327,10 +327,10 @@ export const models: Model[] = [
         tag: "The sporty entry",
         positioning: "90 km/h, quick off the line and fully connected — the entry into 450.",
         exShowroomBlr: 135999,
-        onRoadBlrOverride: 143957,
+        onRoadBlrOverride: 144257,
         emiFrom: 2545,
         status: "available",
-        lastVerified: "2026-07-28",
+        lastVerified: "2026-07-30",
         specSheetUrl: "",
         keySpecs: {
           idcRangeKm: "122 / 161",
@@ -359,10 +359,10 @@ export const models: Model[] = [
         tag: "The enthusiast's Ather",
         positioning: "Warp mode and Google Maps on the dash — the connected enthusiast's 450.",
         exShowroomBlr: 152498,
-        onRoadBlrOverride: 160785,
+        onRoadBlrOverride: 161085,
         emiFrom: 2545,
         status: "available",
-        lastVerified: "2026-07-28",
+        lastVerified: "2026-07-30",
         specSheetUrl: "",
         keySpecs: {
           idcRangeKm: "126 / 161",
@@ -403,10 +403,10 @@ export const models: Model[] = [
         tag: "The fastest Ather made",
         positioning: "0–40 in 2.9 s and 100 km/h — the sharpest, fastest ride Ather builds.",
         exShowroomBlr: 194999,
-        onRoadBlrOverride: 203976,
+        onRoadBlrOverride: 204276,
         emiFrom: null,
         status: "available",
-        lastVerified: "2026-07-28",
+        lastVerified: "2026-07-30",
         specSheetUrl: "",
         keySpecs: {
           idcRangeKm: "165",

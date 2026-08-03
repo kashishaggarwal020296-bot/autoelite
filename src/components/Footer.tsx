@@ -55,9 +55,9 @@ export default function Footer() {
       </div>
       <div className="footer-legal">
         <div>
-          Authorized Ather dealer. GSTIN 29ABACA0605K1ZW. Prices shown are indicative and read from our live pricing
-          data; ex-showroom and on-road figures vary by variant, colour and current offers — confirm in-store before
-          purchase.
+          Authorized Ather dealer. GSTIN 29ABACA0605K1ZW. Prices are read from our live pricing data (Autoelite Ather
+          price list, Aug 2026); ex-showroom and on-road figures vary by variant, colour and current offers — confirm
+          in-store before purchase.
         </div>
       </div>
     </footer>
