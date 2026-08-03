@@ -57,7 +57,7 @@ export const stores: Store[] = [
     openingHours: "Mo-Su 09:30-20:00",
     phoneDisplay: "+91 80 4718 2233",
     phoneTel: "+918047182233",
-    geo: { lat: 12.9137705, lng: 77.6292697 },
+    geo: { lat: 12.915821, lng: 77.634561 },
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Ather+Space+HSR+Layout+14+9th+Main+13th+Cross+Sector+6+Bengaluru+560102",
     mapEmbed: "https://www.google.com/maps?q=Ather+Space+HSR+Layout+14+9th+Main+13th+Cross+Sector+6+Bengaluru+560102&output=embed",
     serviceAvailable: false, // HSR service station not yet operational (2026-07-30)
