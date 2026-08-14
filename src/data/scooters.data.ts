@@ -260,7 +260,7 @@ export const models: Model[] = [
   {
     id: "rizta",
     name: "Ather Rizta",
-    image: "/scooters/rizta-z-red.webp",
+    image: "/scooters/rizta/red.jpg",
     tagline: "The family EV — up to ~161 km, 34–56 L storage, built for the daily Bengaluru run.",
     rangeNote: "161 km option +₹23,000 (S) / +₹20,000 (Z)",
     order: 1,
@@ -269,7 +269,7 @@ export const models: Model[] = [
       {
         id: "rizta-s",
         name: "Rizta S",
-        image: "/scooters/rizta-s.avif",
+        image: "/scooters/rizta/blue.jpg",
         tag: "The family EV",
         positioning: "The easy daily EV — comfortable, roomy and built for the Bengaluru run.",
         exShowroomBlr: 121499,
@@ -300,7 +300,7 @@ export const models: Model[] = [
       {
         id: "rizta-z",
         name: "Rizta Z",
-        image: "/scooters/rizta-z-red.webp",
+        image: "/scooters/rizta/red.jpg",
         tag: "The family EV",
         positioning: "More range, more storage and a bigger dash — the family Rizta, maxed out.",
         exShowroomBlr: 136999,
