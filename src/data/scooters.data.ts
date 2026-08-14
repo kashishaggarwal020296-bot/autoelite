@@ -18,9 +18,11 @@
  *     "indicative — confirm in-store" note on every on-road figure.
  *   - The configurator benefit is ALREADY baked into the effective ex-showroom
  *     price — do NOT subtract a subsidy/offer on top (no stacking).
- *   - Colour hex: Pangong Blue, Terracotta Red, Cardamom Green, Space Grey and
- *     Indium Blue are SAMPLED from Ather product shots. The rest are still
- *     approximations pending the official Ather colour kit.
+ *   - Colour hex: Pangong Blue, Terracotta Red, Cardamom Green, Alphonso Yellow,
+ *     Space Grey and Indium Blue are SAMPLED from Ather product shots; Siachen
+ *     White and Deccan Grey were confirmed accurate against official 3/4 shots.
+ *     Remaining 450-only colours (Cosmic Black, True Red, Hyper Sand, Stealth
+ *     Blue, Lunar Grey, Still White) are approximations pending the colour kit.
  */
 
 // ---------- TYPES ----------
@@ -308,7 +310,7 @@ export const models: Model[] = [
           { name: "Terracotta Red Duo", hex: "#7a4a3e", finish: "duo", priceDelta: 500, status: "available" },
           { name: "Pangong Blue Duo", hex: "#474d5e", finish: "duo", priceDelta: 500, status: "available" },
           { name: "Deccan Grey Duo", hex: "#6b6b68", finish: "duo", priceDelta: 500, status: "available" },
-          { name: "Alphonso Yellow Duo", hex: "#e0a83d", finish: "duo", priceDelta: 500, status: "available" },
+          { name: "Alphonso Yellow Duo", hex: "#e8c266", finish: "duo", priceDelta: 500, status: "available" },
           { name: "Cardamom Green Duo", hex: "#7c8a73", finish: "duo", priceDelta: 500, status: "available" },
         ],
       },
