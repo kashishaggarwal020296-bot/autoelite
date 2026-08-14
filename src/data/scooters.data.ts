@@ -233,6 +233,25 @@ export const financeConfig: FinanceConfig = {
   maxTenureMonths: 60,
 };
 
+// ---------- PER-COLOUR STUDIO SHOTS ----------
+// Official Ather 3/4 renders, keyed by "modelId::colourName". Only Rizta has a
+// full per-colour set today; other models fall back to variant/model image.
+const colourImages: Record<string, string> = {
+  "rizta::Siachen White Mono": "/scooters/rizta/white.jpg",
+  "rizta::Deccan Grey Mono": "/scooters/rizta/grey.jpg",
+  "rizta::Deccan Grey Duo": "/scooters/rizta/grey-duo.jpg",
+  "rizta::Terracotta Red Super Matte": "/scooters/rizta/red.jpg",
+  "rizta::Terracotta Red Duo": "/scooters/rizta/red.jpg",
+  "rizta::Pangong Blue Super Matte": "/scooters/rizta/blue.jpg",
+  "rizta::Pangong Blue Duo": "/scooters/rizta/blue.jpg",
+  "rizta::Alphonso Yellow Duo": "/scooters/rizta/yellow.jpg",
+  "rizta::Cardamom Green Duo": "/scooters/rizta/green.jpg",
+};
+
+export function colourImage(modelId: string, colourName: string): string | undefined {
+  return colourImages[`${modelId}::${colourName}`];
+}
+
 // ---------- DATA ----------
 // Colour hex: several sampled from Ather product shots (see header note); the
 // rest are approximations pending the official Ather colour kit.

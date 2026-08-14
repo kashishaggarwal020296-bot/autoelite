@@ -11,6 +11,7 @@ import {
   getEmiFrom,
   isOfferLive,
   inr,
+  colourImage,
 } from "@/data/scooters.data";
 import { IndicativeNote, IndicativeLine } from "@/components/Indicative";
 import CallbackForm from "@/components/CallbackForm";
@@ -32,6 +33,13 @@ export default function ModelDetail({ model }: { model: Model }) {
   const [variantId, setVariantId] = useState(list[0].id);
   const variant = model.variants.find((v) => v.id === variantId) ?? list[0];
   const [savKm, setSavKm] = useState(30);
+
+  // Selected colour drives the hero image. Falls back to the variant's first
+  // colour when the picked one isn't offered on the current variant.
+  const [colourName, setColourName] = useState<string | null>(null);
+  const activeColour = variant.colours.find((c) => c.name === colourName) ?? variant.colours[0];
+  const heroImage = colourImage(model.id, activeColour?.name ?? "") ?? variant.image ?? model.image;
+  const hasColourImages = variant.colours.some((c) => colourImage(model.id, c.name));
 
   const ex = getExShowroom(variant);
   const onRoad = getOnRoadPrice(variant, onRoadConfig);
@@ -108,11 +116,12 @@ export default function ModelDetail({ model }: { model: Model }) {
           </div>
         </div>
         <div className="ph-strong" style={{ aspectRatio: "4 / 3", borderRadius: 16, position: "relative", overflow: "hidden", background: "var(--surface)" }}>
-          {variant.image ?? model.image ? (
+          {heroImage ? (
             <img
-              src={variant.image ?? model.image}
-              alt={`${variant.name} scooter`}
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain" }}
+              key={heroImage}
+              src={heroImage}
+              alt={`${variant.name}${activeColour ? ` in ${activeColour.name}` : ""}`}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "fadeUp 0.3s ease" }}
             />
           ) : (
             <span className="ph-label">[ {variant.name}: 3/4 render ]<br />Ather asset kit</span>
@@ -146,15 +155,27 @@ export default function ModelDetail({ model }: { model: Model }) {
       <section className="section">
         <h2 className="h2" style={{ fontSize: 24, marginBottom: 4 }}>Colours</h2>
         <p className="note" style={{ fontSize: 14, color: "var(--muted-2)", marginBottom: 16 }}>
-          Available finishes for the {variant.name}. Swatch colours are approximate — per-colour renders come from the Ather asset kit.
+          {hasColourImages
+            ? `Available finishes for the ${variant.name}. Tap a colour to preview it.`
+            : `Available finishes for the ${variant.name}. Swatch colours are approximate — per-colour renders come from the Ather asset kit.`}
         </p>
         <div style={{ display: "flex", gap: 18, flexWrap: "wrap" }}>
-          {variant.colours.map((c) => (
-            <div key={c.name} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 52, height: 52, borderRadius: "50%", background: c.hex, border: "2px solid #fff", boxShadow: "0 0 0 1px var(--line-2)" }} />
-              <span style={{ fontWeight: 500, fontSize: 11, lineHeight: 1.2, color: "var(--muted-2)", textAlign: "center", maxWidth: 70 }}>{c.name}</span>
-            </div>
-          ))}
+          {variant.colours.map((c) => {
+            const selected = c.name === activeColour?.name;
+            return (
+              <button
+                key={c.name}
+                type="button"
+                onClick={() => setColourName(c.name)}
+                aria-pressed={selected}
+                title={c.name}
+                style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}
+              >
+                <span style={{ width: 52, height: 52, borderRadius: "50%", background: c.hex, border: "2px solid #fff", boxShadow: selected ? "0 0 0 2px var(--accent)" : "0 0 0 1px var(--line-2)", transform: selected ? "scale(1.06)" : "none", transition: "transform 0.15s ease, box-shadow 0.15s ease" }} />
+                <span style={{ fontWeight: selected ? 700 : 500, fontSize: 11, lineHeight: 1.2, color: selected ? "var(--ink)" : "var(--muted-2)", textAlign: "center", maxWidth: 70 }}>{c.name}</span>
+              </button>
+            );
+          })}
         </div>
       </section>
 
