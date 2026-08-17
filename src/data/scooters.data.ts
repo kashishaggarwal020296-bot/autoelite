@@ -256,8 +256,22 @@ const colourImages: Record<string, string> = {
   "450::Salt Green": "/scooters/450/salt-green.jpg",
 };
 
+// Side-profile shots (second gallery angle), same key scheme. 450 only for now.
+const colourSideImages: Record<string, string> = {
+  "450::Cosmic Black": "/scooters/450/side/black.jpg",
+  "450::True Red": "/scooters/450/side/red.jpg",
+  "450::Still White": "/scooters/450/side/white.jpg",
+  "450::Space Grey": "/scooters/450/side/space-grey.jpg",
+  "450::Lunar Grey": "/scooters/450/side/lunar-grey.jpg",
+  "450::Salt Green": "/scooters/450/side/salt-green.jpg",
+};
+
 export function colourImage(modelId: string, colourName: string): string | undefined {
   return colourImages[`${modelId}::${colourName}`];
+}
+
+export function colourImageSide(modelId: string, colourName: string): string | undefined {
+  return colourSideImages[`${modelId}::${colourName}`];
 }
 
 // ---------- DATA ----------

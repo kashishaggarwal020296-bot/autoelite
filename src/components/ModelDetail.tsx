@@ -12,6 +12,7 @@ import {
   isOfferLive,
   inr,
   colourImage,
+  colourImageSide,
 } from "@/data/scooters.data";
 import { IndicativeNote, IndicativeLine } from "@/components/Indicative";
 import CallbackForm from "@/components/CallbackForm";
@@ -37,10 +38,18 @@ export default function ModelDetail({ model }: { model: Model }) {
   // Selected colour drives the hero image. Falls back to the variant's first
   // colour when the picked one isn't offered on the current variant.
   const [colourName, setColourName] = useState<string | null>(null);
+  const [angle, setAngle] = useState<"hero" | "side">("hero");
   const activeColour = variant.colours.find((c) => c.name === colourName) ?? variant.colours[0];
-  const activeColourImage = colourImage(model.id, activeColour?.name ?? "");
-  const heroImage = activeColourImage ?? variant.image ?? model.image;
+  const heroImg = colourImage(model.id, activeColour?.name ?? "");
+  const sideImg = colourImageSide(model.id, activeColour?.name ?? "");
+  // colour-specific image for the selected angle (drives the "in <colour>" alt)
+  const activeColourImage = angle === "side" && sideImg ? sideImg : heroImg;
+  const mainImage = activeColourImage ?? variant.image ?? model.image;
   const hasColourImages = variant.colours.some((c) => colourImage(model.id, c.name));
+  const angles = [
+    heroImg ? { key: "hero" as const, src: heroImg, label: "3/4" } : null,
+    sideImg ? { key: "side" as const, src: sideImg, label: "Side" } : null,
+  ].filter((a): a is { key: "hero" | "side"; src: string; label: string } => a !== null);
 
   const ex = getExShowroom(variant);
   const onRoad = getOnRoadPrice(variant, onRoadConfig);
@@ -116,16 +125,34 @@ export default function ModelDetail({ model }: { model: Model }) {
             <Link href={`/on-road-price?variant=${variant.id}`} className="btn btn-outline">On-Road Price</Link>
           </div>
         </div>
-        <div className="ph-strong" style={{ aspectRatio: "4 / 3", borderRadius: 16, position: "relative", overflow: "hidden", background: "var(--surface)" }}>
-          {heroImage ? (
-            <img
-              key={heroImage}
-              src={heroImage}
-              alt={`${variant.name}${activeColour && activeColourImage ? ` in ${activeColour.name}` : " scooter"}`}
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "fadeUp 0.3s ease" }}
-            />
-          ) : (
-            <span className="ph-label">[ {variant.name}: 3/4 render ]<br />Ather asset kit</span>
+        <div>
+          <div className="ph-strong" style={{ aspectRatio: "4 / 3", borderRadius: 16, position: "relative", overflow: "hidden", background: "var(--surface)" }}>
+            {mainImage ? (
+              <img
+                key={mainImage}
+                src={mainImage}
+                alt={`${variant.name}${activeColour && activeColourImage ? ` in ${activeColour.name}` : " scooter"}`}
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "fadeUp 0.3s ease" }}
+              />
+            ) : (
+              <span className="ph-label">[ {variant.name}: 3/4 render ]<br />Ather asset kit</span>
+            )}
+          </div>
+          {angles.length > 1 && (
+            <div style={{ display: "flex", gap: 10, marginTop: 12 }}>
+              {angles.map((a) => (
+                <button
+                  key={a.key}
+                  type="button"
+                  onClick={() => setAngle(a.key)}
+                  aria-pressed={angle === a.key}
+                  aria-label={`${a.label} view`}
+                  style={{ width: 78, height: 60, borderRadius: 10, overflow: "hidden", background: "var(--surface)", border: angle === a.key ? "2px solid var(--accent)" : "1px solid var(--line-2)", cursor: "pointer", padding: 0 }}
+                >
+                  <img src={a.src} alt={`${variant.name} ${a.label}`} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                </button>
+              ))}
+            </div>
           )}
         </div>
       </section>
