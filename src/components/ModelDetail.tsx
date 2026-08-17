@@ -38,7 +38,8 @@ export default function ModelDetail({ model }: { model: Model }) {
   // colour when the picked one isn't offered on the current variant.
   const [colourName, setColourName] = useState<string | null>(null);
   const activeColour = variant.colours.find((c) => c.name === colourName) ?? variant.colours[0];
-  const heroImage = colourImage(model.id, activeColour?.name ?? "") ?? variant.image ?? model.image;
+  const activeColourImage = colourImage(model.id, activeColour?.name ?? "");
+  const heroImage = activeColourImage ?? variant.image ?? model.image;
   const hasColourImages = variant.colours.some((c) => colourImage(model.id, c.name));
 
   const ex = getExShowroom(variant);
@@ -120,7 +121,7 @@ export default function ModelDetail({ model }: { model: Model }) {
             <img
               key={heroImage}
               src={heroImage}
-              alt={`${variant.name}${activeColour ? ` in ${activeColour.name}` : ""}`}
+              alt={`${variant.name}${activeColour && activeColourImage ? ` in ${activeColour.name}` : " scooter"}`}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "fadeUp 0.3s ease" }}
             />
           ) : (

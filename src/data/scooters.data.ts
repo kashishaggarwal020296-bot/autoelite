@@ -246,6 +246,13 @@ const colourImages: Record<string, string> = {
   "rizta::Pangong Blue Duo": "/scooters/rizta/blue.jpg",
   "rizta::Alphonso Yellow Duo": "/scooters/rizta/yellow.jpg",
   "rizta::Cardamom Green Duo": "/scooters/rizta/green.jpg",
+  // Ather 450 (450S + 450X share these colour renders). Hyper Sand and Stealth
+  // Blue have no shot yet, so they fall back to the model image.
+  "450::Cosmic Black": "/scooters/450/black.jpg",
+  "450::True Red": "/scooters/450/red.jpg",
+  "450::Still White": "/scooters/450/white.jpg",
+  "450::Space Grey": "/scooters/450/space-grey.jpg",
+  "450::Lunar Grey": "/scooters/450/lunar-grey.jpg",
 };
 
 export function colourImage(modelId: string, colourName: string): string | undefined {
@@ -338,7 +345,7 @@ export const models: Model[] = [
   {
     id: "450",
     name: "Ather 450",
-    image: "/scooters/450x.webp",
+    image: "/scooters/450/black.jpg",
     tagline: "The sporty, connected Ather — quick off the line, Google Maps on the dash.",
     rangeNote: "161 km option +₹14,000 (450S) / +₹10,501 (450X)",
     order: 2,
@@ -347,7 +354,7 @@ export const models: Model[] = [
       {
         id: "450s",
         name: "450S",
-        image: "/scooters/450s.avif",
+        image: "/scooters/450/black.jpg",
         tag: "The sporty entry",
         positioning: "90 km/h, quick off the line and fully connected — the entry into 450.",
         exShowroomBlr: 135999,
@@ -379,7 +386,7 @@ export const models: Model[] = [
       {
         id: "450x",
         name: "450X",
-        image: "/scooters/450x.webp",
+        image: "/scooters/450/black.jpg",
         tag: "The enthusiast's Ather",
         positioning: "Warp mode and Google Maps on the dash — the connected enthusiast's 450.",
         exShowroomBlr: 152498,
