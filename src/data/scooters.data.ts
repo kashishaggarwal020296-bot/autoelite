@@ -21,8 +21,8 @@
  *   - Colour hex is mostly SAMPLED from official Ather 3/4 shots (Rizta full set;
  *     450 Cosmic Black/True Red/Still White/Space Grey/Lunar Grey/Salt Green).
  *     A few neutrals (e.g. Cosmic Black, Still White) are close approximations.
- *     Indium Blue (Apex) sampled. 450 lineup refreshed 2026: Salt Green added,
- *     Hyper Sand + Stealth Blue removed.
+ *     Indium Blue (Apex) sampled. 450 added Salt Green 2026; Hyper Sand +
+ *     Stealth Blue retained (no shots yet). No colour carries a price premium.
  */
 
 // ---------- TYPES ----------
@@ -246,8 +246,8 @@ const colourImages: Record<string, string> = {
   "rizta::Pangong Blue Duo": "/scooters/rizta/blue.jpg",
   "rizta::Alphonso Yellow Duo": "/scooters/rizta/yellow.jpg",
   "rizta::Cardamom Green Duo": "/scooters/rizta/green.jpg",
-  // Ather 450 (450S + 450X share these colour renders). Every current 450 colour
-  // has a shot after the 2026 refresh (Salt Green in, Hyper Sand/Stealth Blue out).
+  // Ather 450 (450S + 450X share these colour renders). Hyper Sand and Stealth
+  // Blue have no shot yet, so they fall back to the model image in the picker.
   "450::Cosmic Black": "/scooters/450/black.jpg",
   "450::True Red": "/scooters/450/red.jpg",
   "450::Still White": "/scooters/450/white.jpg",
@@ -315,8 +315,8 @@ export const models: Model[] = [
         colours: [
           { name: "Deccan Grey Mono", hex: "#6b6b68", finish: "mono", priceDelta: 0, status: "available" },
           { name: "Siachen White Mono", hex: "#e9e8e2", finish: "mono", priceDelta: 0, status: "available" },
-          { name: "Terracotta Red Super Matte", hex: "#7a4a3e", finish: "matte", priceDelta: 1000, status: "available" },
-          { name: "Pangong Blue Super Matte", hex: "#474d5e", finish: "matte", priceDelta: 1000, status: "available" },
+          { name: "Terracotta Red Super Matte", hex: "#7a4a3e", finish: "matte", priceDelta: 0, status: "available" },
+          { name: "Pangong Blue Super Matte", hex: "#474d5e", finish: "matte", priceDelta: 0, status: "available" },
         ],
       },
       {
@@ -346,13 +346,13 @@ export const models: Model[] = [
         colours: [
           { name: "Deccan Grey Mono", hex: "#6b6b68", finish: "mono", priceDelta: 0, status: "available" },
           { name: "Siachen White Mono", hex: "#e9e8e2", finish: "mono", priceDelta: 0, status: "available" },
-          { name: "Terracotta Red Super Matte", hex: "#7a4a3e", finish: "matte", priceDelta: 1000, status: "available" },
-          { name: "Pangong Blue Super Matte", hex: "#474d5e", finish: "matte", priceDelta: 1000, status: "available" },
-          { name: "Terracotta Red Duo", hex: "#7a4a3e", finish: "duo", priceDelta: 500, status: "available" },
-          { name: "Pangong Blue Duo", hex: "#474d5e", finish: "duo", priceDelta: 500, status: "available" },
-          { name: "Deccan Grey Duo", hex: "#6b6b68", finish: "duo", priceDelta: 500, status: "available" },
-          { name: "Alphonso Yellow Duo", hex: "#e8c266", finish: "duo", priceDelta: 500, status: "available" },
-          { name: "Cardamom Green Duo", hex: "#7c8a73", finish: "duo", priceDelta: 500, status: "available" },
+          { name: "Terracotta Red Super Matte", hex: "#7a4a3e", finish: "matte", priceDelta: 0, status: "available" },
+          { name: "Pangong Blue Super Matte", hex: "#474d5e", finish: "matte", priceDelta: 0, status: "available" },
+          { name: "Terracotta Red Duo", hex: "#7a4a3e", finish: "duo", priceDelta: 0, status: "available" },
+          { name: "Pangong Blue Duo", hex: "#474d5e", finish: "duo", priceDelta: 0, status: "available" },
+          { name: "Deccan Grey Duo", hex: "#6b6b68", finish: "duo", priceDelta: 0, status: "available" },
+          { name: "Alphonso Yellow Duo", hex: "#e8c266", finish: "duo", priceDelta: 0, status: "available" },
+          { name: "Cardamom Green Duo", hex: "#7c8a73", finish: "duo", priceDelta: 0, status: "available" },
         ],
       },
     ],
@@ -395,6 +395,8 @@ export const models: Model[] = [
           { name: "Cosmic Black", hex: "#2f2f2c", finish: "mono", priceDelta: 0, status: "available" },
           { name: "True Red", hex: "#b23b3b", finish: "mono", priceDelta: 0, status: "available" },
           { name: "Salt Green", hex: "#a9cdae", finish: "mono", priceDelta: 0, status: "available" },
+          { name: "Hyper Sand", hex: "#cbb994", finish: "matte", priceDelta: 0, status: "available" },
+          { name: "Stealth Blue", hex: "#3d5a6b", finish: "matte", priceDelta: 0, status: "available" },
         ],
       },
       {
@@ -424,10 +426,12 @@ export const models: Model[] = [
         colours: [
           { name: "Cosmic Black", hex: "#2f2f2c", finish: "mono", priceDelta: 0, status: "available" },
           { name: "True Red", hex: "#b23b3b", finish: "mono", priceDelta: 0, status: "available" },
-          { name: "Space Grey", hex: "#646260", finish: "mono", priceDelta: 1000, status: "available" },
-          { name: "Lunar Grey", hex: "#6b6b68", finish: "mono", priceDelta: 1000, status: "available" },
-          { name: "Still White", hex: "#e9e8e2", finish: "mono", priceDelta: 1000, status: "available" },
+          { name: "Space Grey", hex: "#646260", finish: "mono", priceDelta: 0, status: "available" },
+          { name: "Lunar Grey", hex: "#6b6b68", finish: "mono", priceDelta: 0, status: "available" },
+          { name: "Still White", hex: "#e9e8e2", finish: "mono", priceDelta: 0, status: "available" },
           { name: "Salt Green", hex: "#a9cdae", finish: "mono", priceDelta: 0, status: "available" },
+          { name: "Hyper Sand", hex: "#cbb994", finish: "matte", priceDelta: 0, status: "available" },
+          { name: "Stealth Blue", hex: "#3d5a6b", finish: "matte", priceDelta: 0, status: "available" },
         ],
       },
     ],
