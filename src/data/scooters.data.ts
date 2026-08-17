@@ -256,8 +256,11 @@ const colourImages: Record<string, string> = {
   "450::Salt Green": "/scooters/450/salt-green.jpg",
 };
 
-// Side-profile shots (second gallery angle), same key scheme. 450 only for now.
+// Side-profile shots (second gallery angle), same key scheme.
 const colourSideImages: Record<string, string> = {
+  // Rizta: only the Deccan Grey Duo has a side shot so far (showroom photo,
+  // background-removed). Other Rizta colours show no side thumbnail until shot.
+  "rizta::Deccan Grey Duo": "/scooters/rizta/side/grey-duo.jpg",
   "450::Cosmic Black": "/scooters/450/side/black.jpg",
   "450::True Red": "/scooters/450/side/red.jpg",
   "450::Still White": "/scooters/450/side/white.jpg",
