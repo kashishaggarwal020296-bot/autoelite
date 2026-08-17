@@ -18,11 +18,11 @@
  *     "indicative — confirm in-store" note on every on-road figure.
  *   - The configurator benefit is ALREADY baked into the effective ex-showroom
  *     price — do NOT subtract a subsidy/offer on top (no stacking).
- *   - Colour hex: Pangong Blue, Terracotta Red, Cardamom Green, Alphonso Yellow,
- *     Space Grey and Indium Blue are SAMPLED from Ather product shots; Siachen
- *     White and Deccan Grey were confirmed accurate against official 3/4 shots.
- *     Remaining 450-only colours (Cosmic Black, True Red, Hyper Sand, Stealth
- *     Blue, Lunar Grey, Still White) are approximations pending the colour kit.
+ *   - Colour hex is mostly SAMPLED from official Ather 3/4 shots (Rizta full set;
+ *     450 Cosmic Black/True Red/Still White/Space Grey/Lunar Grey/Salt Green).
+ *     A few neutrals (e.g. Cosmic Black, Still White) are close approximations.
+ *     Indium Blue (Apex) sampled. 450 lineup refreshed 2026: Salt Green added,
+ *     Hyper Sand + Stealth Blue removed.
  */
 
 // ---------- TYPES ----------
@@ -246,13 +246,14 @@ const colourImages: Record<string, string> = {
   "rizta::Pangong Blue Duo": "/scooters/rizta/blue.jpg",
   "rizta::Alphonso Yellow Duo": "/scooters/rizta/yellow.jpg",
   "rizta::Cardamom Green Duo": "/scooters/rizta/green.jpg",
-  // Ather 450 (450S + 450X share these colour renders). Hyper Sand and Stealth
-  // Blue have no shot yet, so they fall back to the model image.
+  // Ather 450 (450S + 450X share these colour renders). Every current 450 colour
+  // has a shot after the 2026 refresh (Salt Green in, Hyper Sand/Stealth Blue out).
   "450::Cosmic Black": "/scooters/450/black.jpg",
   "450::True Red": "/scooters/450/red.jpg",
   "450::Still White": "/scooters/450/white.jpg",
   "450::Space Grey": "/scooters/450/space-grey.jpg",
   "450::Lunar Grey": "/scooters/450/lunar-grey.jpg",
+  "450::Salt Green": "/scooters/450/salt-green.jpg",
 };
 
 export function colourImage(modelId: string, colourName: string): string | undefined {
@@ -379,8 +380,7 @@ export const models: Model[] = [
           { name: "Still White", hex: "#e9e8e2", finish: "mono", priceDelta: 0, status: "available" },
           { name: "Cosmic Black", hex: "#2f2f2c", finish: "mono", priceDelta: 0, status: "available" },
           { name: "True Red", hex: "#b23b3b", finish: "mono", priceDelta: 0, status: "available" },
-          { name: "Hyper Sand", hex: "#cbb994", finish: "mono", priceDelta: 1000, status: "available" },
-          { name: "Stealth Blue", hex: "#3d5a6b", finish: "mono", priceDelta: 1000, status: "available" },
+          { name: "Salt Green", hex: "#a9cdae", finish: "mono", priceDelta: 0, status: "available" },
         ],
       },
       {
@@ -413,8 +413,7 @@ export const models: Model[] = [
           { name: "Space Grey", hex: "#646260", finish: "mono", priceDelta: 1000, status: "available" },
           { name: "Lunar Grey", hex: "#6b6b68", finish: "mono", priceDelta: 1000, status: "available" },
           { name: "Still White", hex: "#e9e8e2", finish: "mono", priceDelta: 1000, status: "available" },
-          { name: "Stealth Blue", hex: "#3d5a6b", finish: "mono", priceDelta: 1000, status: "available" },
-          { name: "Hyper Sand", hex: "#cbb994", finish: "mono", priceDelta: 1000, status: "available" },
+          { name: "Salt Green", hex: "#a9cdae", finish: "mono", priceDelta: 0, status: "available" },
         ],
       },
     ],
