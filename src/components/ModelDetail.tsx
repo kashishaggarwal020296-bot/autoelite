@@ -220,6 +220,20 @@ export default function ModelDetail({ model }: { model: Model }) {
               <span style={{ fontWeight: 700, fontSize: 15 }}>{v}</span>
             </div>
           ))}
+          {variant.specSheetUrl && (
+            <div style={{ padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
+              <span className="note" style={{ fontSize: 12 }}>Every figure, dimension and feature — official Ather brochure (PDF).</span>
+              <a
+                href={variant.specSheetUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+                style={{ height: 38, fontSize: 13 }}
+              >
+                Full specifications ↗
+              </a>
+            </div>
+          )}
         </div>
       </section>
 

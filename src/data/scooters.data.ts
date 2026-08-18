@@ -302,7 +302,7 @@ export const models: Model[] = [
         emiFrom: 2235,
         status: "available",
         lastVerified: "2026-07-30",
-        specSheetUrl: "",
+        specSheetUrl: "/brochures/ather-rizta.pdf",
         keySpecs: {
           idcRangeKm: "123 / 161", // 161 confirmed (the earlier 159 figure was wrong)
           topSpeedKmph: 80,
@@ -333,7 +333,7 @@ export const models: Model[] = [
         emiFrom: 2235,
         status: "available",
         lastVerified: "2026-07-30",
-        specSheetUrl: "",
+        specSheetUrl: "/brochures/ather-rizta.pdf",
         keySpecs: {
           idcRangeKm: "123 / 161", // 161 confirmed (the earlier 159 figure was wrong)
           topSpeedKmph: 80,
@@ -380,7 +380,7 @@ export const models: Model[] = [
         emiFrom: 2545,
         status: "available",
         lastVerified: "2026-07-30",
-        specSheetUrl: "",
+        specSheetUrl: "/brochures/ather-450.pdf",
         keySpecs: {
           idcRangeKm: "122 / 161",
           topSpeedKmph: 90,
@@ -413,7 +413,7 @@ export const models: Model[] = [
         emiFrom: 2545,
         status: "available",
         lastVerified: "2026-07-30",
-        specSheetUrl: "",
+        specSheetUrl: "/brochures/ather-450.pdf",
         keySpecs: {
           idcRangeKm: "126 / 161",
           topSpeedKmph: 90,
@@ -458,7 +458,7 @@ export const models: Model[] = [
         emiFrom: null,
         status: "available",
         lastVerified: "2026-07-30",
-        specSheetUrl: "",
+        specSheetUrl: "/brochures/ather-450.pdf",
         keySpecs: {
           idcRangeKm: "165",
           topSpeedKmph: 100,
